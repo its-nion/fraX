@@ -1,18 +1,23 @@
 
-#include "gvars.hpp"
 #include "application.hpp"
 
-Application::Application()
+Application::Application(const char* name, const int width, const int height)
 {
-    std::cout << "Instantiated!" << std::endl;
+    _window = new Window(name, width, height);
+
+    _gapi = new Gapi((char*)name, _window->getWindowHandle());
 }
 
 void Application::run()
 {
-    std::cout << "Ran!" << std::endl;
+    while (!_window->shouldClose())
+    {
+        _window->updateEvents();
+    }
 }
 
 Application::~Application()
 {
-    std::cout << "Destructed!" << std::endl;
+    delete _gapi;
+    delete _window;
 }

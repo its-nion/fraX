@@ -1,4 +1,4 @@
-WIP Frax
+WIP fraX
 
 A performant 3d Fractal Renderer
 

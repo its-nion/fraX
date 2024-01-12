@@ -12,15 +12,18 @@
                 //"-Wl,-subsystem,windows", console
 
                 // Includes
-                "-I${workspaceFolder}/dependencies/include",
                 "-I${VULKAN_SDK}/Include",
+                "-I${workspaceFolder}/dependencies/include",
 
                 // File
                 "${workspaceFolder}/src/*.cpp",
+                "${workspaceFolder}/src/gapi/*.cpp",
+                "${workspaceFolder}/src/window/*.cpp",
+                "${workspaceFolder}/dependencies/include/vkbootstrap/*.cpp",
 
                 // Libraries
-                "-L${workspaceFolder}/dependencies/lib/glfw",
                 "-L${VULKAN_SDK}/Lib",
+                "-L${workspaceFolder}/dependencies/lib/glfw",
 
                 // Additinal dependencies
                 "-lglfw3",

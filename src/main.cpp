@@ -1,17 +1,19 @@
 
-#include "gvars.hpp"
 #include "application.hpp"
 
 int main(int argc, char *argv[]) {
-    auto fraX = std::make_unique<Application>();
+    // create app
+    auto fraX = new Application("FraX", 720, 480);
 
-    try {
-        fraX->run();
-    }
+    // run loop and catch errors
+    try { fraX->run(); }
     catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;
         return EXIT_FAILURE;
     }
+
+    // app destructor
+    delete fraX;
 
     return EXIT_SUCCESS;
 }
